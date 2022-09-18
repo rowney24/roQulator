@@ -1,0 +1,863 @@
+#include <iostream>
+#include<vector>
+#include <cmath>
+
+using namespace std;
+
+
+
+	double addition_subt ()
+		{
+			
+			double x; 
+			bool count_loops = false;
+			double sum;       // to hold the answer of the addition
+			bool start = true; // for addition 
+			
+			if (start==true)
+			{
+			
+				
+				
+				
+				while(start && x!= 0 ) //user has input more than one number
+				{   
+				
+					if (count_loops == false )
+			     	{
+					cout<<"Please enter the first number here: ";
+					cin>> x;
+					sum = x;
+					cout<<" \n";
+					count_loops = true;
+			    	}
+				
+				
+				    cout<<" + ";
+					cin>> x;
+					if (x != 0)
+					{
+						sum= sum + x;
+						cout<< " = "
+						    <<sum
+						    <<"\n \n";
+					}	
+					else
+					{
+						start = false;
+						
+					}
+									
+						
+			}	}	
+			
+			return sum;
+			
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   // Subtraction loop
+	   
+	   	double subtract_subt ()
+		{
+			
+			double number; 
+			bool count_loops = false;
+			double subtraction ;       // to hold the answer of the addition
+			bool start = true; // for addition 
+			
+			if (start==true)
+			{
+							
+				while(start && number!= 0 ) //user has input more than one number
+				{   
+				
+					if (count_loops == false )
+			     	{
+					cout<<"Please enter the first number here: ";
+					cin>> number;
+					subtraction = number;
+					cout<<" \n";
+					count_loops = true;
+			    	}
+				
+				
+				    cout<<" - ";
+					cin>> number;
+					if (number != 0)
+					{
+						subtraction = subtraction - number;
+						cout<< " = "
+						    <<subtraction
+						    <<"\n \n";
+					}	
+					else
+					{
+						start = false;	
+					}
+									
+						
+			}	}	
+			
+			return subtraction;
+	   }
+		
+			
+	
+	
+	
+	
+	
+	
+	// Square root class 
+	
+		class Squareroot{
+			
+		private:
+		double numb;               //variable for the square root to be calculated	
+		
+		
+		
+		public:
+			
+		Squareroot(double x)
+		{
+				getnum(x);
+		}
+		
+		
+		
+	    double getnum(double z)
+	    {
+	    	numb = z; 	
+		}
+		
+		double calculated()
+		{
+			return sqrt(numb) ;
+		}
+	
+	
+        };
+	
+	
+
+
+
+
+
+
+	class Logs{
+			
+		private:
+		double numb;               //variable for the log to be calculated	
+		
+		
+		
+		public:
+			
+		Logs(double x)
+		{
+				getnum(x);
+		}
+		
+		
+		
+	    double getnum(double z)
+	    {
+	    	numb = z; 	
+		}
+		
+		double calculated()
+		{
+			return log(numb);
+		}
+	
+	
+        };
+        
+        
+      
+        
+        
+        
+        
+        
+        //Class that can calculate multiplication
+        
+        class Multi_division{
+		
+		private:
+			double x;
+			double y;
+			
+		public:
+			Multi_division (double constx, double consty)    //constx means constructor variable x
+			{
+				getnumb(constx, consty);
+			}
+			
+		
+		   double getnumb(double c, double d)                       //accessor to get variable x;
+			{
+			  x = c;
+			  y = d;
+			}
+			
+			
+			double calculator()                   //returns the answer for multiplication
+			{
+				return (x * y);
+			}
+			
+			
+			double division_calculator()                   //returns the answer for division
+			{
+				return (x / y);
+			}
+		
+		
+	};
+    
+
+
+
+    
+    
+	
+
+//Class for quadratic equation
+
+  class Quadratic{
+  	
+  	public:
+  	
+  	Quadratic (double c, double d, double e)   //constructor to get variables from main
+  	{
+  		get_quadratic(c, d, e);                //dont put data type for a function being called, when called it will give private variables values
+	}
+  	
+  	
+  	get_quadratic(double f, double g, double h)
+  	{
+  		x= f;  //interesting, the constructor gets the variable from main then pass to get_quadratic which then assigns the variables from main onto the private variables
+  		y= g;
+  		z= h;	
+  		calculate_quadratic();
+  		calculate_quadratic2();   // this is called after  calculate_quadratic(); is called
+		  	
+	}
+	
+	
+	double calculate_quadratic()
+	{
+		double answer;
+		answer =   (  (-y) + sqrt( pow(y,2.0) - (4.0*x*z))  )/ (2.0*x);
+		return answer;
+	}
+	
+	
+	//second answer
+	double calculate_quadratic2()
+	{
+		double answer2;
+		answer2 =   (  (-y) - sqrt( pow(y,2.0) - (4.0*x*z))  )/ (2.0*x);
+		return answer2;
+	}
+  	
+  	
+  	
+  	
+  	private:
+  		double x;                  //Private variable to hold the coeficients of the quadratic equation
+  		double y;
+  		double z;
+  };
+    
+
+     
+     
+     
+     
+     //averaging function for option 8 
+	      
+	      double averagevalue(const vector<double> collection, int lenght)
+          {
+          	double sum = 0.0;
+	        
+	        for (int i=0; i < collection.size()  ; i++)
+	      	    {	      	    
+				  sum= sum + collection[i]; 	
+				}
+				return sum/collection.size();
+				
+		  }	 
+     
+
+	     
+	
+	       
+        
+
+
+int main()
+ {
+
+int option;	     //for decision of the calculation option
+double number;  //for any number that is going to be inserted by the user
+double number2;  //for calculations that need double input
+double c;        // for the c of b^2-4ac of a quadratic equation 
+bool start = true ;      // to terminate program
+char decide;      // for user to type Y or N to decide whether to continue the program or not
+
+
+while(start)
+{
+	
+	
+	cout<<"Hello. Welcome to roQuemath. This program will assist in solving simple mathematical problems. \n"
+    << "Below are some options for some operands you can select. If you need assistance select option 9 \nand the application directions will pop up. \n \n"
+	<< "Option 1_____Addition\n"
+	<< "Option 2_____Subtraction\n"
+	<< "Option 3_____Multiplication\n"
+	<< "Option 4_____Division\n"
+	<< "Option 5_____Square Root\n"
+	<< "Option 6_____Logarithimic\n"
+	<< "Option 7_____Quadratic Equations \n"
+	<< "Option 8_____Averaging \n"
+	<< "Option 9_____Help \n \n"
+	<< "To do a calculation, type the option number below ( for example if you need to divide two \nintegers, type 4 and hit enter.) \n \n";
+	
+	
+	cin>> option;
+	cout<<"\n";
+	
+	while(cin.fail())
+	{
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>option;
+		 cout<<"\n\n";
+	}
+	
+
+	
+	
+	while (option < 0 || option > 9)                 //keep on looping if option is incorrect
+			{
+				cout<<"Invalid input, the range of options stretches from 0-9. Please type a number inside this range. \n";
+			    cout<<"Input the option number here: ";
+			    cin>>option;
+			}
+			
+			
+			
+			
+    // Here i am going to call a function called addition that will allow the user to input data items.
+ 
+	if (option == 1)
+		{
+			addition_subt ();
+            cout<<"The sum of the numbers you added is : "
+			    << addition_subt ();	
+			    
+			    
+		cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+	}
+			    
+	
+		
+		
+	if (option == 2)
+		{
+			subtract_subt ();
+            cout<<"The result of your subtraction is : "
+			    << subtract_subt ();	
+			    
+		// Continuation Option
+			    
+		cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+		}
+		
+		
+		
+			
+	
+	
+	if (option == 3)
+		{
+			
+		cout<<"Input the first number here: ";
+		cin>>number;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number;
+		 cout<<"\n\n";
+	    }
+		
+		
+		
+		
+			
+		cout<<"Input the second number here: ";
+		cin>>number2;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number2;
+		 cout<<"\n\n";
+	    }
+		
+			
+		Multi_division multiplication_numbers(number, number2);    //constructor carries two parameters
+        cout<< "The multiplication of ( "
+            << number
+            << " ) and ( "
+            << number2
+            << " ) gives: "
+            << multiplication_numbers.calculator();
+            
+            
+            // Continuation Option
+		cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+	    
+	    
+		}
+		
+		
+		
+		
+		
+	if (option == 4)
+		{
+		cout<<"Input the dividend here: ";
+		cin>>number;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number;
+		 cout<<"\n\n";
+	    }
+		
+			
+		cout<<"Input the divisor here: ";
+		cin>>number2;
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number2;
+		 cout<<"\n\n";
+	    }
+		
+			while (number2 == 0)
+			{
+				cout<<"Invalid input, you can not divide by zero. \n";
+			    cout<<"Input the divisor here: ";
+			    cin>>number2;
+			    cout<<"\n";
+			}
+			
+		cout<<"\n";
+		
+			
+		Multi_division division_numbers(number, number2);    //constructor carries two parameters
+        cout<< "The division of ( "
+            << number
+            << " ) and ( "
+            << number2
+            << " ) gives: "
+            << division_numbers.division_calculator();
+            
+            
+        // Continuation Option  
+        cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+		  
+    }
+    
+    
+    
+    
+	
+	
+	
+
+
+		
+	if (option == 5)
+		{
+		cout<<"Input the number here: ";
+		cin>>number;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number;
+		 cout<<"\n\n";
+	    }
+		
+			
+		while (number<0)
+			{
+				cout<<"Invalid input, variable for square root cannot be less than zero. Please type a valid number. \n";
+			    cout<<"Input the number here: ";
+			    cin>>number;
+			    cout<<"\n";
+			}
+			
+		Squareroot num(number);
+		    cout<< "Square root of ( "
+		        << number
+		        << " ) = "
+		        << num.calculated();
+		        
+		    // Continuation Option  
+        cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+		  
+     	}
+     	
+     	
+     	
+		
+			
+	if (option == 6)
+		{
+			cout<<"Input the number here: ";
+			cin>>number;
+			cout<<"\n";
+			
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number;
+		 cout<<"\n\n";
+	    }
+		
+			
+			while (number<0)
+			{
+				cout<<"Invalid input, variable for logarithm cannot be less than zero. Please type a valid number. \n";
+			    cout<<"Input the number here: ";
+			    cin>>number;
+			    cout<<"\n";
+			}
+			
+		    Logs num(number);
+		    cout<< "log( "
+		        << number
+		        << " ) = "
+		        << num.calculated();
+		        
+		   // Continuation Option  
+        cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+		  
+		}
+		
+		
+	
+	
+	
+	
+	
+		
+		
+	    if (option == 7)
+		{
+		cout<<"IMPORTANT INFORMATION:\nA quadratic equation is a second-order polynomial equation with a single variable x,  ax^2+bx+c=0   \nwith 'a' not equal to 0."
+		    <<"In this typical quadtratic equation 'a' is the coeficient for the second degree \nvariable x. Also, 'b' is the coefficient for the first degree variable, x .\n \n";
+		cout<<"Input the coeficient for the second degree variable here: ";
+		cin>>number;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number;
+		 cout<<"\n\n";
+	    }
+	    
+	    //quadratic equation should have a non zero number as the coefficient of x squared
+		while (number == 0)
+			{
+				cout<<"Invalid input, this coefficient can not be zero. \n";
+			    cout<<"Input a valid figure here: ";
+			    cin>>number;
+			    cout<<"\n";
+			}
+			
+		cout<<"Input the coeficient for the first degree variable here: ";
+		cin>>number2;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>number2;
+		 cout<<"\n\n";
+	    }
+		
+		cout<<"Input the value of 'c' here: ";
+		cin>>c;
+		cout<<"\n";
+		
+		//Input error check
+		while(cin.fail())
+	    {
+		 cout<<"\n"
+	         <<"The character you entered is not a number!\n"
+	         <<"Type the correct data type here: ";
+	     cin.clear();
+	     cin.sync();
+		 cin>>c;
+		 cout<<"\n\n";
+	    }
+		
+		
+
+		Quadratic calculate(number, number2, c);
+		
+		
+		// Test to see if the roots are not complex
+		
+		if (((number2*number2)-(4*number*c)) >= 0)
+		{
+			
+			if( (calculate.calculate_quadratic()) != (calculate.calculate_quadratic2()) )
+		{
+			// For a repeated root
+			cout<<"The answers to this equation are: (" 
+		    <<calculate.calculate_quadratic()
+		    <<")";
+		    cout<<" and ("
+		    << calculate.calculate_quadratic2()
+			<<")";
+		}
+		
+		else
+		cout<<"The answers to this equation is: ("
+		    <<calculate.calculate_quadratic()
+			<<")"
+			<<"\n\n";	
+			
+		}
+		else
+		cout<<"The roots for the equation you just typed are complex. A more complex calculator is required! \nroQuemath"
+		    << " is working on it.\n";
+		
+		
+	    
+
+		
+		//Continuation option
+	  
+	  	cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+		
+		}
+		
+		
+		
+		
+		
+		if  (option == 8)
+		{
+		  bool insert = true;
+		  int i = 1;
+	   
+	      cout<< "Please enter the numbers below. The average value will be exhibited after you enter 0. \n\n";
+	      vector<double> insert_numbers;
+	      
+          while (insert)     //adding numbers
+          {
+          if (i>=4)
+          {
+          	cout<< "Insert the "
+              << i
+              <<"th number here:";
+		  }
+		  
+		  
+		  if (i==1)
+          {
+          	cout<< "Insert the "
+              << i
+              <<"st number here:";
+		  }
+		  
+		  if (i==2)
+          {
+          	cout<< "Insert the "
+              << i
+              <<"nd number here:";
+		  }
+		  
+		  
+		  if (i==3)
+          {
+          	cout<< "Insert the "
+              << i
+              <<"rd number here:";
+		  }
+          
+          cin >> number;
+          cout<<"\n";
+          
+          
+          //Input error check
+		while(cin.fail())
+	       {
+		     cout<<"\n"
+	             <<"The character you entered is not a number!\n"
+	             <<"Type the correct data type here: ";
+	         cin.clear();
+	         cin.sync();
+		     cin>>number;
+		     cout<<"\n\n";
+	       }
+          
+          
+          
+          if (number == 0)        //loop termination
+          {
+          	insert = false;
+          	int size = insert_numbers.size();
+          	averagevalue( insert_numbers , size);
+          	
+          	 //Displaying answer
+          	 cout<<"The average or mean value for the "
+          	     <<  i-1
+          	     <<" numbers you entered is: ("
+          	     << averagevalue( insert_numbers , size)
+          	     <<")\n\n";
+		  }
+          else
+          {
+          	insert_numbers.push_back(number);
+		    i++;
+		  }
+		  
+	      }
+	      
+	     
+	      
+	      
+	      
+	           
+	 
+		  
+		  
+		  
+		  
+		// Continuation Option  
+        cout<< "\n \nDo you want to continue calculating? Type 'Y' to represent YES and 'N' to represent NO. \nIf you type 'Y' , the option list will be displayed to you again.\n ";
+	    cin>> decide;
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;	
+				
+			
+		}
+		
+		
+		
+		
+		if (option == 9)
+		{	    
+		cout<< "roQuemath HELP DISPLAY MESSAGE:\n\nroQuemath is a simple math calculating program. The program has a total of 8 mathematical subjects \n"
+		    << "which you can select according to the menu above. After you have entered your number, press ENTER \n"
+		    << "so that you can start input of the numbers you want to calculate.\n \nThe maximum number of inputs "
+		    << "per option selected is 3. Make sure you type in the correct data type \nto avoid some program errors.\n\n\n";
+		    
+		cout<< "Enter 'Y' to continue to program or 'N' to terminate the program.\n ";
+	    cin>> decide;
+	    cout<<"\n\n\n";
+	    if (decide == 'N' || decide == 'n' )
+	    start= false;
+	    
+	    }
+		
+		
+		  
+    }	
+	             
+	             
+	             
+	return 0;
+ 
+ } 
